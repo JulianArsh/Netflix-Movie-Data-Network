@@ -1,33 +1,48 @@
 # 🎬 Netflix Actor–Director Collaboration Network Analysis
 
+Explore how actors and directors collaborate across Netflix titles using Python and network analysis.
+
 ## 📌 Project Overview
 
-This project explores professional relationships between actors and directors using the Netflix Movies and TV Shows dataset.
+This project explores professional collaboration relationships between actors and directors using the Netflix Movies and TV Shows dataset.
 
-The goal is to build an undirected collaboration network where:
-- **Nodes** represent actors and directors.
-- **Edges** represent people who worked together on the same movie or TV show.
-- **Edge weights** represent the number of titles shared by two people.
+Using Python and NetworkX, I transformed Netflix catalogue data into an undirected collaboration network to identify recurring partnerships, frequently appearing industry participants, and changes in collaboration patterns across release decades.
 
-Using Python and NetworkX, this project identifies recurring collaborations, influential participants in the network, and changes in collaboration patterns across different release decades.
+The network represents:
+- **Nodes:** Actors and directors.
+- **Edges:** Connections between people who worked on the same title.
+- **Edge weights:** Number of titles shared by two people.
 
 ## 🎯 Project Objectives
 
 - Build an actor–director collaboration network.
 - Identify actors who frequently work together.
 - Discover the strongest actor–director partnerships.
-- Identify the most frequently appearing actors and directors.
+- Identify frequently appearing actors and directors.
 - Compare collaboration networks across release decades.
-- Communicate findings through network graphs and visualizations.
+- Communicate findings through charts and network visualizations.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Programming and analysis |
+| Pandas | Data cleaning and manipulation |
+| NumPy | Numerical operations |
+| NetworkX | Network construction and analysis |
+| Matplotlib | Data visualization |
+| itertools | Generating collaboration pairs |
+| Collections | Counting collaborations |
 
 ## 📂 Project Structure
 
 ```text
-netflix-actor-director-network/
+Netflix-Movie-Data-Network/
 │
-├── Netflix_Movie_Data.ipynb
+├── notebook.ipynb
 ├── netflix_dataset.csv
 ├── README.md
+├── netflix_network_portfolio.zip
 │
 └── reports/
     ├── report.md
@@ -39,15 +54,19 @@ netflix-actor-director-network/
     └── collaboration_per_title.png
 ```
 
+*Note: This structure reflects the intended project organization. Make sure the files and folders exist in your repository.*
+
 ## 📊 Dataset
 
 The project uses the Netflix Movies and TV Shows dataset.
 
-- Original records: 8,807
-- Original columns: 11
-- Records retained after removing missing cast and director information: 5,700
-- Actors considered per title: First four cast members
-- Directors considered per title: All listed directors
+| Dataset information | Result |
+|---|---:|
+| Original records | 8,807 |
+| Original columns | 11 |
+| Records retained after cleaning | 5,700 |
+| Actors considered per title | First four cast members |
+| Directors considered per title | All listed directors |
 
 Important variables include:
 
@@ -59,20 +78,9 @@ Important variables include:
 | `release_year` | Original release year |
 | `type` | Movie or TV show |
 
-## 🛠️ Technologies Used
-
-- **Python** – Programming language
-- **Pandas** – Data cleaning and manipulation
-- **NumPy** – Numerical operations
-- **NetworkX** – Network construction and analysis
-- **Matplotlib** – Data visualization
-- **itertools** – Generating actor and director pairs
-- **Collections** – Counting appearances
-
 ## 🔍 Analysis and Methodology
 
 ### 1. Data Preparation
-
 - Loaded the Netflix dataset.
 - Removed records with missing cast or director information.
 - Extracted the first four actors from each title.
@@ -83,15 +91,20 @@ Important variables include:
 
 Created an undirected graph using NetworkX.
 
-Each title connects all its included actors and directors. The resulting network includes actor–actor, actor–director and director–director relationships.
+Each title connects its included actors and directors. The resulting network includes:
+- Actor–actor relationships.
+- Actor–director relationships.
+- Director–director relationships.
+
+People who acted and directed are represented as separate role-labelled nodes.
 
 ### 3. Actor–Director Collaboration Analysis
 
 Counted shared titles between actors and directors.
 
-The strongest partnership identified was:
+The strongest partnerships identified were:
 
-| Actor | Director | Shared Titles |
+| Actor | Director | Shared titles |
 |---|---|---:|
 | Rupa Bhimani | Rajiv Chilaka | 18 |
 | Julie Tejwani | Rajiv Chilaka | 17 |
@@ -102,13 +115,11 @@ The strongest partnership identified was:
 
 Identified recurring actor partnerships.
 
-The strongest partnership was:
-
-**Julie Tejwani and Rupa Bhimani – 26 shared titles.**
+**Strongest partnership: Julie Tejwani and Rupa Bhimani — 26 shared titles.**
 
 ### 5. Most Frequently Appearing Actors
 
-| Actor | Number of Titles |
+| Actor | Number of titles |
 |---|---:|
 | Shah Rukh Khan | 35 |
 | Akshay Kumar | 28 |
@@ -118,7 +129,7 @@ The strongest partnership was:
 
 ### 6. Most Frequently Appearing Directors
 
-| Director | Number of Titles |
+| Director | Number of titles |
 |---|---:|
 | Jan Suter | 21 |
 | Rajiv Chilaka | 19 |
@@ -130,14 +141,14 @@ The strongest partnership was:
 
 The network was divided into release decades to investigate changes in professional collaboration patterns.
 
-The 2010s contained the largest network, with:
+The 2010s contained the largest network:
 
-- 3,812 titles
-- 12,439 people (nodes)
-- 33,723 unique connections (edges)
-- 35,244 total collaboration occurrences
+- 3,812 titles.
+- 12,439 nodes.
+- 33,723 unique edges.
+- 35,244 total collaboration occurrences.
 
-The 1950s recorded the highest average collaboration occurrences per title, at 10.45, although this result was based on only 11 titles.
+The 1950s recorded the highest average collaboration occurrences per title, at 10.45, based on only 11 titles.
 
 ## 📈 Key Results
 
@@ -160,6 +171,36 @@ The 1950s recorded the highest average collaboration occurrences per title, at 1
 5. The 2010s had the largest collaboration network by title count, nodes and unique edges.
 6. Collaboration occurrences per title remained relatively stable across several decades.
 
+## 📊 Visualizations
+
+The project includes visualizations illustrating the collaboration network and key findings.
+
+If you have uploaded the images into the `reports/` folder, you can display them directly in this README:
+
+### Actor–Director Collaboration Network
+
+![Actor–Director Network](reports/actor_director_network.png)
+
+### Actor–Actor Collaborations
+
+![Actor–Actor Collaborations](reports/actor_actor_collaborations.png)
+
+### Top Actors
+
+![Top Actors](reports/top_actors.png)
+
+### Top Directors
+
+![Top Directors](reports/top_directors.png)
+
+### Netflix Titles by Decade
+
+![Titles by Decade](reports/titles_by_decade.png)
+
+### Collaboration Occurrences per Title
+
+![Collaboration Occurrences per Title](reports/collaboration_per_title.png)
+
 ## 📉 Limitations
 
 - Only the first four cast members listed per title were included.
@@ -172,25 +213,26 @@ The 1950s recorded the highest average collaboration occurrences per title, at 1
 
 ## 🚀 How to Run the Project
 
-1. Clone or download this repository.
-2. Install the required Python libraries:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/JulianArsh/Netflix-Movie-Data-Network.git
+cd Netflix-Movie-Data-Network
+```
+
+### 2. Install the required libraries
 
 ```bash
 pip install pandas numpy matplotlib networkx
 ```
 
-3. Ensure `netflix_dataset.csv` is available in the expected location.
-4. Open `Netflix_Movie_Data.ipynb` in Jupyter Notebook or JupyterLab.
-5. Run the notebook cells sequentially.
+### 3. Open the notebook
 
-## 📁 Project Deliverables
+Open `notebook.ipynb` using Jupyter Notebook or JupyterLab.
 
-- Jupyter Notebook containing the complete analysis.
-- Actor–director collaboration network visualization.
-- Actor–actor collaboration chart.
-- Most frequently appearing actor and director charts.
-- Decade-based network analysis.
-- Detailed project report.
+### 4. Run the notebook
+
+Ensure `netflix_dataset.csv` is in the expected location, then execute the notebook cells sequentially.
 
 ## 🏁 Conclusion
 
@@ -198,11 +240,16 @@ This project demonstrates how network analysis can uncover professional collabor
 
 By transforming Netflix catalogue data into a graph, it becomes possible to identify recurring partnerships, frequently appearing industry participants and changes in collaboration patterns over time.
 
-The project highlights the practical application of Python, data analysis and network visualization in extracting meaningful insights from real-world datasets.
+The project showcases practical applications of Python, data cleaning, exploratory data analysis, NetworkX and data visualization.
+
+## 👨‍💻 Author
+
+**Julian Wanjiru**
+
+- **Project:** Netflix Actor–Director Collaboration Network Analysis
+- **Tools:** Python, Pandas, NetworkX, Matplotlib
+- **Category:** Data Analysis | Network Science | Data Visualization
 
 ---
 
-**Author:** Julian Wanjiru  
-**Project:** Netflix Actor–Director Collaboration Network Analysis  
-**Tools:** Python, Pandas, NetworkX, Matplotlib  
-**Category:** Data Analysis | Network Science | Data Visualization
+⭐ If you find this project interesting, feel free to explore the repository and share your feedback.
