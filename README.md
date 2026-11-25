@@ -43,18 +43,9 @@ Netflix-Movie-Data-Network/
 ├── netflix_dataset.csv
 ├── README.md
 ├── netflix_network_portfolio.zip
-│
-└── reports/
-    ├── report.md
-    ├── actor_director_network.png
-    ├── actor_actor_collaborations.png
-    ├── top_actors.png
-    ├── top_directors.png
-    ├── titles_by_decade.png
-    └── collaboration_per_title.png
-```
 
-*Note: This structure reflects the intended project organization. Make sure the files and folders exist in your repository.*
+
+
 
 ## 📊 Dataset
 
